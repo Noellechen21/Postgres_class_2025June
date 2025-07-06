@@ -44,3 +44,41 @@ INSERT INTO student (name, major)
 VALUES ('小柱','生物'),('信忠','英語');
 
 ```
+
+## 嘗試加入('呂育忠','歷史')發現會出現錯誤
+```sql
+INSERT INTO student (name, major)
+VALUES ('呂育忠','歷史');
+```
+###原因是因為major VARCHAR(20) UNIQUE 設為unique ,要解決此問題，就把這個unique刪掉
+
+##取得資料
+```sql
+SELECT 
+  select_list 
+FROM 
+  table_name 
+WHERE 
+  condition 
+ORDER BY 
+  sort_expression;
+
+```
+ ###where條件式
+
+ ```
+ select *
+from student
+order by student_id asc;
+
+select *
+from student
+order by student_id desc;
+
+select *
+from student
+order by student_id desc
+limit 3;
+ ```
+
+ ###
