@@ -81,4 +81,33 @@ order by student_id desc
 limit 3;
  ```
 
- ###
+ ##更新資料
+```sql
+UPDATE table_name
+SET column1 = value1,
+    column2 = value2,
+    ...
+WHERE condition;
+ ###where 一定要有
+```
+UPDATE student
+SET name  = '阿柱',
+    major =  '數學'
+    
+WHERE student_id =2;
+
+
+##刪除資料 and in
+
+```sql
+DELETE FROM table_name
+WHERE condition;
+where 不一定要有
+```
+例子
+
+delete from student 
+where student_id = 2;
+
+delete from student 
+where student_id in (1, 3,4);
