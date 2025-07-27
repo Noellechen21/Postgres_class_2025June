@@ -6,4 +6,3 @@ print("15.0") #字串, (str)
 print('15.0' )#字串, (str)
 print(True) #布林值, (bool)
 print(False) #布林值, (bool)
-2
