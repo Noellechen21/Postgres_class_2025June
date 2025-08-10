@@ -1,6 +1,6 @@
 import argparse
 import random
-## 以下是結構化後的程式，未結構化的請見lesson9_2結構化主程式.py
+## 以下是結構化後的程式，未結構化的請見lesson9_2修改為結構化程式.py
 
 def get_user_name()->str:
     parser = argparse.ArgumentParser(description="猜數字遊戲")
@@ -14,7 +14,9 @@ def get_user_name()->str:
         name = args.name
 
     return name
-
+# ->None 是型別提醒，可以不用寫
+#(name : str) str是type hint可以不寫
+#每一行可以用AI寫說明(這段AI寫不好，就沒放)
 def play_game(name:str)->None:
     print(f"========猜數字遊戲第{i+1}次=========\n\n")
     min = 1
@@ -42,9 +44,10 @@ def play_game(name:str)->None:
 
 def main():
     frequency = 1
+    #呼叫get_user_name()
     name = get_user_name()
     for i in range(frequency):
-        play_game(name)
+        play_game(name)  #把def play_game的name這引數值帶入
     print(f"遊戲結束,{name}共玩了{frequency}次")
 
 if __name__ == '__main__':
