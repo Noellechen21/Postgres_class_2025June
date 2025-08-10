@@ -5,7 +5,7 @@ import psycopg2
 #def execute_query(connection, query):
 #   cursor = connection.cursor()
 #  cursor.execute(query)
-# result = cursor.fetchall()
+# result = cursopyr.fetchall()
 #cursor.close()
 #return result
 

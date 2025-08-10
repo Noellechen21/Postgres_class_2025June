@@ -1,5 +1,5 @@
 #要再確認 0803
-import db
+import lesson9.db as db
 
 def main():
     stations = db.get_all_stations()
