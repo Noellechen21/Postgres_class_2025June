@@ -5,7 +5,6 @@ Here's our first attempt at using data to create a table:
 """
 
 import streamlit as st
-import pandas as pd
 import datasource  #複製lesson10的資料來用，重新命名為datasource
 
 #df = pd.DataFrame({
@@ -34,13 +33,14 @@ st.subheader("進出站人數顯示區")
 
 #st.write("您選擇的車站:", station)
 
-
-@st.cache_resource
+#增加抓取資料的效能
+@st.cache_data
 def get_stations():
     """取得車站資料"""
-    return datasource.get_stations_names()
+    return datasource.get_stations_names() #從這裡知道若沒有資料會傳出none
 
 stations = get_stations()
+#所以到這裡設定若無資料時(AI寫))
 if stations is None:
     st.error("無法取得車站資料，請稍後再試。")
     st.stop()
@@ -49,12 +49,13 @@ if stations is None:
 #如果不常用的車站名稱,再使用selectbox
 
 # 先取前五個站為常用站（可改為固定清單或從使用者設定讀取）
-common_stations = stations[:5] if len(stations) >= 5 else stations
+#common_stations = stations[:5] if len(stations) >= 5 else stations
 
 # 在 sidebar 顯示常用站列表，並加上「其他」選項（當總站數大於常用站數時）
 
-quick_options = common_stations + (["其他"] if len(stations) > len(common_stations) else [])
-choice = st.sidebar.radio("快速選擇常用車站", quick_options)
+#quick_options = common_stations + (["其他"] if len(stations) > len(common_stations) else [])
+common_stations = ['臺北','桃園','新竹','台中','臺南','高雄','其他']
+choice = st.sidebar.radio("快速選擇常用車站", common_stations)
 
 if choice == "其他":
     station = st.sidebar.selectbox(
